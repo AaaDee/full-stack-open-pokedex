@@ -42,10 +42,10 @@ processes = []
 
    [[services.http_checks]]
     interval = 10000
-    grace_period = "5s"
+    grace_period = "30s"
     method = "get"
     path = "/health"
-    protocol = "https"
+    protocol = "http"
     restart_limit = 0
     timeout = 2000
     tls_skip_verify = false
