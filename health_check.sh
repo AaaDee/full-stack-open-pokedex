@@ -1,6 +1,6 @@
 #!/bin/bash
 
-response=$(curl /health)
+response=$(curl https://late-mountain-6387.fly.dev/health)
 if [ $response == "ok" ]
 then 
   echo "ok received"
