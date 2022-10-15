@@ -1,5 +1,8 @@
 name: Deployment pipeline
 
+env:
+  HAS_SKIP: ${{ contains(join(github.event.commits.*.message), '#skip') }}
+
 on:
   push:
     branches:
@@ -10,11 +13,10 @@ on:
 
 jobs:
   simple_deployment_pipeline:
+    if: ${{ !env.HAS_SKIP }}
     runs-on: ubuntu-20.04
     env:
       FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
-      HAS_SKIP: ${{ contains(join(github.event.commits.*.message), '#skip') }}
-    if: ${{ !env.HAS_SKIP }}
     steps:
       - uses: actions/checkout@v3
       - uses: superfly/flyctl-actions/setup-flyctl@master
