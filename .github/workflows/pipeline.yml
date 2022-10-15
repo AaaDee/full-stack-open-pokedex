@@ -23,3 +23,12 @@ jobs:
         env:
           COMMIT_MESSAGES: ${{ toJson(github.event.commits.*.message) }}
         run: echo "$COMMIT_MESSAGES"
+      - name: contains skip
+        env:
+          HAS_SKIP: ${{ github.event.commits.*.message.join.contains("#skip") }}
+        run: echo "$HAS_SKIP"
+      - name: contains zap
+        env:
+          HAS_ZAP: ${{ github.event.commits.*.message.join.contains("#zap") }}
+        run: echo "$HAS_ZAP"
+
