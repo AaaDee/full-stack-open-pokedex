@@ -49,7 +49,7 @@ jobs:
         if: failure()
         with:
             severity: error
-            details: Commit ${{ env.GITHUB_SHA }} broke the build
+            details: Commit ${{ github.sha }} broke the build
             webhookUrl: ${{ secrets.DISCORD_WEBHOOK }}
   tag_release:
     needs: [simple_deployment_pipeline]
