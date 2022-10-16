@@ -39,7 +39,7 @@ jobs:
         run: flyctl deploy --remote-only
       - name: Test Success
         uses: rjstone/discord-webhook-notify@v1
-        if: success()
+        if: ${{ github.event_name == 'push' && success() }}
         with:
             severity: info
             details: Build deployed
