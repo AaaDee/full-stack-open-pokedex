@@ -1,13 +1,14 @@
-on:
-  schedule:
-    - cron: '30 * * * *'
 
-jobs:
-  periodic_health_check:
-    runs-on: ubuntu-20.04
-    steps:
-    - name: Check the deployed service URL
-      uses: jtalk/url-health-check-action@v2
-      with:
-        url: https://late-mountain-6387.fly.dev/health
+# on:
+#   schedule:
+#     - cron: '30 * * * *'
+
+# jobs:
+#   periodic_health_check:
+#     runs-on: ubuntu-20.04
+#     steps:
+#     - name: Check the deployed service URL
+#       uses: jtalk/url-health-check-action@v2
+#       with:
+#         url: https://late-mountain-6387.fly.dev/health
      
